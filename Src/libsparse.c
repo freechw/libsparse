@@ -47,7 +47,7 @@ sparse_ParserTypeDef *sparse_New(void)
 {
     sparse_ParserTypeDef *s = (sparse_ParserTypeDef *)calloc(1, sizeof(sparse_ParserTypeDef));
     s->delimiter = ',';
-    for (uint8_t i = 0; i < 128; i++)
+    for (uint8_t i = 0; i < 94; i++)
     {
         s->cmd_table[i].callback_pointer = &sparse_DefaultCallback;
     }
@@ -67,7 +67,7 @@ void sparse_InitParser(sparse_ParserTypeDef *parser)
 
 sparse_StatusTypeDef sparse_RegisterCallback(sparse_ParserTypeDef *parser, const char id, const uint8_t num_args, sparse_CallbackPointer callback)
 {
-    if ((uint8_t)id > 127)
+    if (((uint8_t)id < 33) || ((uint8_t)id > 127))
     {
         // Error - Invalid callback ID specified.
         return SPARSE_ERROR;
@@ -78,8 +78,8 @@ sparse_StatusTypeDef sparse_RegisterCallback(sparse_ParserTypeDef *parser, const
            a valid segment of memory. */
         return SPARSE_ERROR;
     }
-    parser->cmd_table[(uint8_t)id].callback_pointer = callback;
-    parser->cmd_table[(uint8_t)id].num_args = num_args;
+    parser->cmd_table[(uint8_t)(id - 33)].callback_pointer = callback;
+    parser->cmd_table[(uint8_t)(id - 33)].num_args = num_args;
     return SPARSE_OK;
 }
 
