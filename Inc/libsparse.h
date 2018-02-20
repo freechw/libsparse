@@ -75,7 +75,7 @@ typedef struct
 {
     char delimiter;
     char line_end;
-    sparse_CallbackTypeDef cmd_table[128];
+    sparse_CallbackTypeDef cmd_table[95];
 } sparse_ParserTypeDef;
 
 
