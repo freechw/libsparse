@@ -47,7 +47,7 @@ LICENSE:
 #include <string.h>
 
 /**************    CONSTANTS, MACROS, & DATA STRUCTURES    ***************/
-#define SPARSE_COMPILE_WITH_PRINTF 1
+#define SPARSE_COMPILE_WITH_PRINTF 0
 
 typedef enum {
     SPARSE_OK = 0,
