@@ -62,3 +62,12 @@ dkms.conf
 *.xml
 *.project
 *.cproject
+
+# Binary Files
+Debug/
+
+# IDE Config Files
+.settings/
+.vscode/
+.cproject
+.project
