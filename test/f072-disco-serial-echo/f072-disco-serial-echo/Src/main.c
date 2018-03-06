@@ -143,8 +143,7 @@ sparse_StatusTypeDef ChangeLedColorCallback(sparse_ArgPack *a) {
 		HAL_GPIO_WritePin(LD6_GPIO_Port, LD6_Pin, GPIO_PIN_RESET);
 		break;
 	default:
-		printf("Error. Invalid color (%d) specified.\n", color);
-		_Error_Handler(__FILE__, __LINE__);
+		printf("Error. Invalid color (%d) specified. Valid colors are in {0, 1, 2, 3}\n", color);
 	}
 
 	return SPARSE_OK;

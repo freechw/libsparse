@@ -92,7 +92,7 @@ sparse_StatusTypeDef sparse_Exec(sparse_ParserTypeDef *parser, char *cmd_str)
     }
     /* If this command accepts arguments, build an argpack and pass to the function
        call.*/
-    unsigned int args = parser->cmd_table[((uint8_t)cmd_str[0]) - 33].num_args;
+    unsigned int args = parser->cmd_table[(uint8_t)(cmd_str[0] - 33)].num_args;
     if (args > 0)
     {
         a->cmd = cmd_str[0];
@@ -114,7 +114,7 @@ sparse_StatusTypeDef sparse_Exec(sparse_ParserTypeDef *parser, char *cmd_str)
         }
     }
     /* Execute callback function with argpack passed as argument. */
-    if (parser->cmd_table[((uint8_t)a->cmd) - 33].callback_pointer(a) != SPARSE_OK)
+    if (parser->cmd_table[(uint8_t)(a->cmd - 33)].callback_pointer(a) != SPARSE_OK)
     {
 #if SPARSE_COMPILE_WITH_PRINTF
         printf("Error in callback function for command %c.\n", a->cmd);
