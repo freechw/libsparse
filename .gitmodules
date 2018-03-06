@@ -1,0 +1,3 @@
+[submodule "test/f072-disco-serial-echo/f072-disco-serial-echo/Drivers/libsparse"]
+	path = test/f072-disco-serial-echo/f072-disco-serial-echo/Drivers/libsparse
+	url = ssh://git@gitlab.cdxserver.net:45038/Libraries/libsparse.git

@@ -92,7 +92,8 @@ sparse_StatusTypeDef sparse_Exec(sparse_ParserTypeDef *parser, char *cmd_str)
     }
     /* If this command accepts arguments, build an argpack and pass to the function
        call.*/
-    if (parser->cmd_table[((uint8_t)cmd_str[0])].num_args > 0)
+    unsigned int args = parser->cmd_table[((uint8_t)cmd_str[0])].num_args
+    if (args > 0)
     {
         a->cmd = cmd_str[0];
 
